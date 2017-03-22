@@ -1,0 +1,79 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminPassword": {
+      "defaultValue": null,
+      "type": "securestring",
+      "metadata": {
+        "description": "The Administrator Password usually returned from KeyVault"
+      }
+    },
+    "adminUserName": {
+      "defaultValue": null,
+      "type": "securestring",
+      "metadata": {
+        "description": "The Administrator UserName usually returned from KeyVault"
+      }
+    },
+    "buildReference": {
+      "type": "string",
+      "defaultValue": "master",
+      "metadata": {
+        "description": "For Manual Builds this will be a branch name for VSTS Build this will be a build ID."
+      }
+    },
+    "buildVersion": {
+      "type": "string",
+      "defaultValue": "0.1",
+      "metadata": {
+        "description": "Build version to match tagged version in GIT/VSTS"
+      }
+    },
+    "configurationName": {
+      "type": "string",
+      "metadata": {
+        "description": "DSC Node Configuration Name"
+      }
+    },
+    "environmentName": {
+      "defaultValue": null,
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 4,
+      "metadata": {
+        "description": "The name of the environment to be built"
+      }
+    },
+    "serverCount": {
+      "defaultValue": 1,
+      "type": "int",
+      "metadata": {
+        "description": "Number of Servers required"
+      }
+    },
+    "subnetRange": {
+      "type": "string",
+      "defaultValue": null,
+      "metadata": {
+        "description": "CIDR Address for the Subnet Machine are to be built in"
+      }
+    },
+    "systemName": {
+      "type": "string",
+      "defaultValue": null,
+      "minLength": 3,
+      "maxLength": 4,
+      "metadata": {
+        "description": "System prefix for billing and naming purposes"
+      }
+    },
+    "virtualMachineSize": {
+      "type": "string",
+      "defaultValue": "Standard_DS1_v2",
+      "metadata": {
+        "description": "VM size"
+      }
+    }
+  }
+}
